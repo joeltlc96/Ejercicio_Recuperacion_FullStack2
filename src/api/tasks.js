@@ -1,17 +1,13 @@
 import { api } from './client';
 
 export async function listTasks() {
-  return (await api.get('/api/tareas')).data;
+  return (await api.get('/api/tasks')).data;
 }
 
 export async function deleteTask(id) {
-  return (await api.delete(`/api/tareas/${id}`)).data;
+  return (await api.delete(`/api/tasks/${id}`)).data;
 }
 
 export async function completeTask(id) {
-  try {
-    return (await api.patch(`/api/tareas/${id}/completar`)).data;
-  } catch {
-    return (await api.patch(`/api/tareas/${id}`, { esta_completa: true })).data;
-  }
+  return (await api.patch(`/api/tasks/${id}/complete`)).data;
 }
