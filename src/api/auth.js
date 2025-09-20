@@ -9,6 +9,6 @@ export async function logout() {
 }
 
 export async function me() {
-  // corregido: debe apuntar a /api/auth/me
+  
   return (await api.get('/api/auth/me')).data;
 }
